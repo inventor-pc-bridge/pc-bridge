@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy - Inventor Mobile and Inventor Mobile Bridge</title>
+<meta name="description" content="Privacy policy for the Inventor Mobile Android app and the Inventor Mobile Bridge PC program.">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f5f7fa;
+    --panel: #ffffff;
+    --border: #d5dde7;
+    --text: #17202b;
+    --muted: #556272;
+    --accent: #1f6fd1;
+    --code-bg: #eef2f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1318;
+      --panel: #181e26;
+      --border: #2a333f;
+      --text: #e8edf3;
+      --muted: #aeb8c5;
+      --accent: #4da3ff;
+      --code-bg: #111820;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1318;
+    --panel: #181e26;
+    --border: #2a333f;
+    --text: #e8edf3;
+    --muted: #aeb8c5;
+    --accent: #4da3ff;
+    --code-bg: #111820;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 0 16px 48px; }
+  header { padding: 32px 0 8px; }
+  h1 { font-size: 28px; line-height: 1.2; margin: 0 0 6px; }
+  h2 { font-size: 19px; margin: 26px 0 8px; }
+  h3 { font-size: 16px; margin: 16px 0 6px; }
+  p { margin: 0 0 12px; }
+  ul { padding-left: 22px; margin: 0 0 12px; }
+  li { margin-bottom: 6px; }
+  .meta { color: var(--muted); font-size: 14px; margin: 0; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 4px 18px 10px;
+    margin-top: 12px;
+  }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+    font-size: 0.92em;
+    background: var(--code-bg);
+    border-radius: 4px;
+    padding: 1px 5px;
+  }
+  a { color: var(--accent); }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  footer { margin-top: 28px; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <h1>Privacy policy</h1>
+  <p class="meta">Inventor Mobile (Android app) and Inventor Mobile Bridge (Windows program). Effective 2026-10-28.</p>
+</header>
+
+<div class="card">
+  <p>This policy covers two programs. The <strong>Inventor Mobile</strong> app runs on your Android phone or tablet. The <strong>Inventor Mobile Bridge</strong> runs on your Windows PC next to Autodesk Inventor. Together they let you control Inventor from the phone. Neither program has user accounts, advertising, analytics or tracking. Nothing is sent to a server operated by the developer.</p>
+  <p>The developer is Jared Waldner. Contact: <a href="https://github.com/Jared-Waldner/inventor-mobile-bridge/issues">GitHub Issues</a>.</p>
+</div>
+
+<h2>1. Summary</h2>
+<ul>
+  <li>Your models and files stay on your phone and your PC. They travel only between your phone and your PC, over your own VPN or home network, and only when you open or save a file.</li>
+  <li>The app uses the microphone for voice commands through Android's speech recognition service (see section 3).</li>
+  <li>The bridge contacts the internet only to check for updates (see section 5).</li>
+  <li>There are no accounts, ads, analytics SDKs, or crash-reporting SDKs in the app.</li>
+</ul>
+
+<h2>2. The network: what connects to what</h2>
+<p>The app connects only to the PC address or addresses you enter, on the port shown in the bridge window (47800 by default). The PC address is a private address on your VPN or your home network. The bridge listens only on private addresses and on the local machine, never on public addresses.</p>
+<ul>
+  <li><strong>Over a VPN</strong> (WireGuard, Tailscale, ZeroTier, OpenVPN and similar), the traffic is encrypted by the VPN.</li>
+  <li><strong>Over the home network</strong> the traffic is not encrypted. It is protected only by the pairing code and the device key described in section 4. Use that option only on a network you trust.</li>
+</ul>
+<p>The phone and the PC exchange commands, the model's geometry for display, and the files you open or save. The app does not send your data to any other address.</p>
+
+<h2>3. Voice commands and the microphone</h2>
+<p>The app asks for the microphone permission (<code>RECORD_AUDIO</code>) the first time you use voice input. Voice recognition is performed by Android's speech recognition service: the app starts it with Android's standard speech recognizer and receives the recognized text back. The app does not record audio to a file and does not upload audio itself.</p>
+<p>Which service does the recognition, and whether the audio is processed on the phone or sent to the service provider, depends on the phone and its speech service settings (on many phones this is Google's speech service). Google's handling of that audio is governed by Google's own privacy policy. You can use the app without voice by typing commands.</p>
+
+<h2>4. Data stored on your devices</h2>
+<h3>On the phone</h3>
+<ul>
+  <li>The PC address or addresses, the port and the pairing details (including a device key that the PC issued) are stored in the app's private storage. They are removed when you uninstall the app.</li>
+  <li>Settings such as the theme and the demo-mode flag, and your own command aliases file, are stored in the app's private storage.</li>
+  <li>Android backup is turned off for the app, so these values are not copied to a cloud backup by the app.</li>
+  <li>Files you open or save on the phone are read or written only where you choose them, through Android's file picker. The phone never browses your PC's other folders: it can list only the PC's Cad Files folder and the active Inventor project workspace, through the bridge.</li>
+</ul>
+<h3>On the PC</h3>
+<ul>
+  <li>The bridge keeps its settings, the pairing code, and a hash of each paired device's key in <code>%APPDATA%\InventorMobile\bridge.json</code>. The pairing code is never written to the log. The bridge does not store the device keys in readable form.</li>
+  <li>To show recent documents and open files, the bridge reads Inventor's recent-document list from the Windows registry and sends the names and sizes to the app. Pinning a document in the app changes the pin entry Inventor keeps in the same registry area.</li>
+  <li>The bridge's log is in <code>%LOCALAPPDATA%\InventorMobile\logs</code>. It records connections, commands, and file transfers (file name, size, direction and time). Logs are kept on your PC and are not sent anywhere.</li>
+  <li>Files that come from the phone are copied to a working folder, <code>%TEMP%\InventorMobile\work</code>. The bridge deletes a working copy when its document is closed. Files for export are kept in a separate outbox folder until they are sent to the phone.</li>
+  <li>The bridge never overwrites or saves over a file on your PC without an on-screen confirmation. Your own folders, including Documents and any folder synced by OneDrive, are not changed by the bridge unless you ask it to save there.</li>
+</ul>
+<p>Uninstalling the bridge keeps <code>%APPDATA%\InventorMobile</code> and the logs. Delete those folders yourself if you want them gone. Removing a device in the bridge window deletes its stored key.</p>
+
+<h2>5. Internet access by the bridge</h2>
+<p>The bridge makes one kind of outgoing internet request: an update check. From version 0.9.0 it checks, about once a day, the latest release of the Inventor Mobile Bridge on GitHub (<code>api.github.com</code>) and offers to download and install a newer version from <code>github.com</code>. These requests are ordinary HTTPS requests. They contain no files, models, or information about your phone. GitHub receives the usual technical details of any web request, such as your PC's IP address. You can turn the daily check off in the bridge window.</p>
+<p>The bridge does not contact any other server.</p>
+
+<h2>6. Files and cloud services</h2>
+<p>The app never uploads your files to a cloud service of its own. If you choose <strong>Save to OneDrive</strong> or another app in the Android share sheet, the file is handed to that app, and what happens next is governed by that app and its provider. The developer does not operate any cloud storage.</p>
+
+<h2>7. Information from Google Play</h2>
+<p>The app is distributed through Google Play. Google Play may give the developer aggregate statistics such as installs, uninstalls, and crash or freeze reports, depending on the user's settings on their device. These reports do not identify you and contain no content from your models.</p>
+
+<h2>8. Website</h2>
+<p>This website is hosted on GitHub Pages. It does not use cookies, analytics or advertising of its own. GitHub may collect the usual technical information about visits to its sites under its own privacy statement.</p>
+
+<h2>9. What I do not do</h2>
+<ul>
+  <li>I do not sell, rent or share your personal data, because the app does not collect it.</li>
+  <li>I do not show ads and do not track you across apps or sites.</li>
+  <li>I do not have access to your models, files, or PC.</li>
+  <li>The apps are not directed at children under 13.</li>
+</ul>
+
+<h2>10. Your choices</h2>
+<ul>
+  <li>Use the app without voice input, and do not grant the microphone permission.</li>
+  <li>Turn the bridge's daily update check off in the bridge window.</li>
+  <li>Remove a paired device in the bridge window, which deletes its key. Press <em>New code</em> to replace the pairing code.</li>
+  <li>Uninstall the app or the bridge at any time. Delete <code>%APPDATA%\InventorMobile</code> and <code>%LOCALAPPDATA%\InventorMobile</code> to remove the bridge's data.</li>
+</ul>
+
+<h2>11. Changes to this policy</h2>
+<p>If the app or the bridge starts to handle data differently, this policy will be updated and its date changed. Major changes will be described in the release notes.</p>
+
+<h2>12. Contact</h2>
+<p>Questions about this policy: <a href="https://github.com/Jared-Waldner/inventor-mobile-bridge/issues">open an issue on GitHub</a>.</p>
+
+<footer>
+  <p><a href="index.html">Back to Inventor Mobile Bridge</a></p>
+  <p>Autodesk and Inventor are registered trademarks of Autodesk, Inc. Inventor Mobile is not affiliated with or endorsed by Autodesk.</p>
+</footer>
+
+</main>
+</body>
+</html>
