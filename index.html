@@ -118,13 +118,18 @@
 
 <header>
   <h1>Inventor Mobile Bridge</h1>
-  <p class="lead">The free Windows companion for the Inventor Mobile app. The app on your phone cannot work without it.</p>
+  <p class="lead">The free Windows companion that connects your Android phone or tablet to Autodesk Inventor on your PC. It is used by two apps: <strong>Inventor Mobile</strong> for modeling, and <strong>Vertex CAD</strong> for viewing Inventor files.</p>
 </header>
 
 <section>
   <h2>What the bridge is and why it is needed</h2>
-  <p>Inventor Mobile lets you model in Autodesk Inventor from an Android phone or tablet. Autodesk Inventor runs on your Windows PC, and it does the modeling. The phone draws the model, takes your touch and voice commands, and sends each change to the PC.</p>
-  <p>The bridge is the small program that runs on the PC next to Inventor. It carries the phone's commands out in Inventor through Inventor's own programming interface, and sends the updated model back to the phone. It runs in the notification area by the clock and has no console window.</p>
+  <p>The bridge is the small program that runs on the PC next to Autodesk Inventor and lets an app on your phone use it through Inventor's own programming interface. It runs in the notification area by the clock and has no console window. One bridge works for both apps.</p>
+  <div class="apps">
+    <h3>Inventor Mobile: modeling</h3>
+    <p>Inventor Mobile lets you model in Inventor from your phone. Inventor on the PC does the modeling; the phone draws the model, takes your touch and voice commands, and the bridge carries each change out in Inventor and sends the updated model back. <strong>Inventor Mobile cannot work without the bridge.</strong></p>
+    <h3>Vertex CAD: viewing</h3>
+    <p>Vertex CAD is a viewer, not a modeling app. It opens STEP, IGES, DXF and PDF files on the phone by itself, with no PC needed. The bridge is optional: when you open an Inventor part (.ipt), assembly (.iam) or assembly .zip package, Vertex CAD can send it to the bridge, which has Inventor convert it and sends the result back for viewing. Nothing is changed in your Inventor files.</p>
+  </div>
   <p>The bridge listens only on your own private network: a VPN you run or the home network you choose. It does not listen on public addresses, and nothing goes through any cloud service.</p>
 </section>
 
@@ -134,7 +139,7 @@
     <li><strong>Windows 10 or 11, 64-bit.</strong> The bridge needs no separate .NET install.</li>
     <li><strong>Autodesk Inventor 2027</strong> installed and licensed on that PC. Inventor 2027.1 is the tested version. Other versions are attempted: older ones with a warning, newer ones with a note in the bridge log.</li>
     <li><strong>A private network between the phone and the PC</strong>: a VPN that both devices can reach (WireGuard, Tailscale, ZeroTier, OpenVPN, a company VPN, ...), or the same home network with the phone on the PC's Wi-Fi or LAN.</li>
-    <li><strong>The Inventor Mobile app</strong> on Android 8 or newer, from <a href="https://play.google.com/store/apps/details?id=com.inventor_mobile">Google Play</a>. The app needs bridge 0.9.0 or newer.</li>
+    <li><strong>The app on your phone or tablet:</strong> <a href="https://play.google.com/store/apps/details?id=com.inventor_mobile">Inventor Mobile</a> (Android 8 or newer) or Vertex CAD. Both expect bridge 0.9.0 or newer.</li>
   </ul>
 </section>
 
@@ -163,11 +168,11 @@
   <ol>
     <li><strong>On the PC</strong>, open the bridge window. It shows the <strong>PC address</strong> (one or more addresses), the <strong>port</strong> (47800) and the <strong>pairing code</strong> (five groups of four characters). Use <em>Show</em> and <em>Copy</em> to read or copy the code.</li>
     <li><strong>Choose the network.</strong> In the bridge window, pick <em>VPN</em> (the default) or <em>Home network</em>. Use <em>Home network</em> only on a network you trust, because it is not encrypted.</li>
-    <li><strong>On the phone</strong>, open the Inventor Mobile app, and on the "Set up your PC" screen (or the connection panel) enter the PC address or addresses, separated by commas, for example <code>192.168.1.20, 10.8.0.2</code>. Enter the port 47800 and the pairing code.</li>
-    <li>Tap <strong>Connect</strong>. The app shows "Connected" with the Inventor version when it is paired. The app uses whichever address answers, so it works at home and away.</li>
+    <li><strong>In Inventor Mobile</strong>, on the "Set up your PC" screen (or the connection panel), enter the PC address or addresses, separated by commas, for example <code>192.168.1.20, 10.8.0.2</code>, the port 47800 and the pairing code, then tap <strong>Connect</strong>. The app shows "Connected" with the Inventor version when it is paired, and uses whichever address answers, so it works at home and away.</li>
+    <li><strong>In Vertex CAD</strong>, open the menu and choose <strong>PC Inventor Bridge</strong>. Enter the PC IP address and the pairing code. Once it shows "Paired with PC Inventor Bridge", opening an Inventor file offers to convert it on the PC.</li>
   </ol>
   <p class="steps-note">The pairing code is for pairing only. Keep it private: anyone with the code and network access to this PC can pair a device. Press <em>New code</em> in the bridge window to replace it. Devices already paired keep working.</p>
-  <p class="steps-note">Each paired phone or tablet gets its own hidden Inventor, started by the bridge and kept running while the bridge runs. Inventor you open yourself on the PC is never used by the phone.</p>
+  <p class="steps-note">In Inventor Mobile, each paired phone or tablet gets its own hidden Inventor, started by the bridge and kept running while the bridge runs. Inventor you open yourself on the PC is never used by the phone.</p>
 </section>
 
 <section>
@@ -178,7 +183,7 @@
 
 <section>
   <h2>Troubleshooting</h2>
-  <p>If the app says it cannot connect or the pairing code is not accepted, check these in order:</p>
+  <p>If either app says it cannot connect or the pairing code is not accepted, check these in order:</p>
   <ol>
     <li><strong>Network:</strong> is the VPN switched on on the phone, or is the phone on the same Wi-Fi as the PC, with <em>Home network</em> chosen in the bridge window?</li>
     <li><strong>PC bridge:</strong> is Inventor Mobile Bridge running on the PC? Its icon is by the clock. If it is not, open it from the Start Menu.</li>
@@ -189,7 +194,7 @@
 
 <footer>
   <p><a href="privacy.html">Privacy policy</a> &middot; <a href="https://play.google.com/store/apps/details?id=com.inventor_mobile">Inventor Mobile on Google Play</a> &middot; <a href="https://github.com/inventor-pc-bridge/pc-bridge">Source of this site</a></p>
-  <p>Autodesk and Inventor are registered trademarks of Autodesk, Inc. Inventor Mobile is not affiliated with or endorsed by Autodesk.</p>
+  <p>Autodesk and Inventor are registered trademarks of Autodesk, Inc. Inventor Mobile and Vertex CAD are not affiliated with or endorsed by Autodesk.</p>
   <p>Questions: <a href="https://github.com/inventor-pc-bridge/pc-bridge/issues">open an issue on GitHub</a>.</p>
 </footer>
 
